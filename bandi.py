@@ -1,3 +1,23 @@
+"""bandi_scraper_dashboard.py
+-------------------------------------------------------------------
+Dashboard interattiva (Streamlit) + scraper bandi Trentino‑Alto Adige
+-------------------------------------------------------------------
+
+• Avvia con:
+    streamlit run bandi_scraper_dashboard.py
+
+• Dipendenze:
+    pip install streamlit pandas requests python-dateutil beautifulsoup4 lxml
+
+• Fonti integrate (maggio 2025):
+    1. API Open Data – Comune di Trento (classi=bando)
+    2. CKAN dati.trentino.it – dataset "bandi-di-gara" (param resource_id)
+    3. Portale bandi Alto Adige (scraping HTML, paginazione)
+    4. Portale Amministrazione Trasparente PAT (scraping RSS/HTML)
+
+Puoi aggiungere/estendere i parser nelle rispettive funzioni.
+"""
+
 from __future__ import annotations
 
 import json
@@ -95,7 +115,7 @@ def fetch_trento(max_items: int = 200) -> pd.DataFrame:
 ###############################################################################
 
 CKAN_ENDPOINT = "https://dati.trentino.it/api/3/action/datastore_search"
-CKAN_RESOURCE_ID = "e989dd00-c4ce-48a2-88f7-16a0518c026a"  # bandi di gara
+CKAN_RESOURCE_ID = "989c9555-66d0-4b7d-a4ed-b24cde2dd7dc"  # bandi di gara
 
 
 def fetch_ckan(rows: int = 300) -> pd.DataFrame:
